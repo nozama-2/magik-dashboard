@@ -1,4 +1,4 @@
-export const Icons = {
+const icons = {
 	logo: (props) => (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
@@ -137,3 +137,5 @@ export const Icons = {
 		</svg>
 	),
 };
+
+export default icons;

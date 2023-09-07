@@ -12,43 +12,43 @@ import {
 
 const data = [
 	{
-		name: "Mon",
+		name: "Wk 11",
 		Amanda: 1200,
 		Johnny: 880,
 		Jane: 500,
 	},
 	{
-		name: "Tues",
+		name: "Wk 12",
 		Amanda: 1300,
 		Johnny: 930,
 		Jane: 560,
 	},
 	{
-		name: "Wed",
+		name: "Wk 13",
 		Amanda: 1200,
 		Johnny: 1010,
 		Jane: 680,
 	},
 	{
-		name: "Thurs",
+		name: "Wk 14",
 		Amanda: 1400,
 		Johnny: 1110,
 		Jane: 780,
 	},
 	{
-		name: "Fri",
+		name: "Wk 15",
 		Amanda: 1450,
 		Johnny: 1230,
 		Jane: 700,
 	},
 	{
-		name: "Sat",
+		name: "Wk 16",
 		Amanda: 1680,
 		Johnny: 1250,
 		Jane: 800,
 	},
 	{
-		name: "Sun",
+		name: "Wk 17",
 		Amanda: 1570,
 		Johnny: 1300,
 		Jane: 900,

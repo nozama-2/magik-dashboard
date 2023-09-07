@@ -1,4 +1,4 @@
-import { BellIcon, CheckIcon } from "@radix-ui/react-icons";
+import { CheckIcon } from "@radix-ui/react-icons";
 
 import { cn } from "../../lib/utils";
 import { Button } from "../ui/button";

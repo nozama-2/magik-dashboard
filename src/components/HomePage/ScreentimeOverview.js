@@ -3,31 +3,31 @@ import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from "recharts";
 const data = [
 	{
 		name: "Mon",
-		total: Math.floor(Math.random() * 5000) + 1000,
+		total: Math.floor(Math.random() * 50) + 10,
 	},
 	{
 		name: "Tues",
-		total: Math.floor(Math.random() * 5000) + 1000,
+		total: Math.floor(Math.random() * 50) + 10,
 	},
 	{
 		name: "Wed",
-		total: Math.floor(Math.random() * 5000) + 1000,
+		total: Math.floor(Math.random() * 50) + 10,
 	},
 	{
 		name: "Thurs",
-		total: Math.floor(Math.random() * 5000) + 1000,
+		total: Math.floor(Math.random() * 50) + 10,
 	},
 	{
 		name: "Fri",
-		total: Math.floor(Math.random() * 5000) + 1000,
+		total: Math.floor(Math.random() * 50) + 10,
 	},
 	{
 		name: "Sat",
-		total: Math.floor(Math.random() * 5000) + 1000,
+		total: Math.floor(Math.random() * 50) + 10,
 	},
 	{
 		name: "Sun",
-		total: Math.floor(Math.random() * 5000) + 1000,
+		total: Math.floor(Math.random() * 50) + 10,
 	},
 ];
 
@@ -47,7 +47,7 @@ const ScreentimeOverview = () => {
 					fontSize={12}
 					tickLine={false}
 					axisLine={false}
-					tickFormatter={(value) => `$${value}`}
+					tickFormatter={(value) => `${value} min`}
 				/>
 				<Bar dataKey="total" fill="#E11d48" radius={[4, 4, 0, 0]} />
 			</BarChart>

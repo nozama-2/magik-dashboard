@@ -39,6 +39,16 @@ const SideMenu = () => {
 			</Link>
 			<Link
 				className={
+					location.pathname === "/Quizzes" ||
+					location.pathname === "/CreateQuiz"
+						? "nav-active"
+						: "nav-item"
+				}
+				to="/Quizzes">
+				Quizzes
+			</Link>
+			<Link
+				className={
 					location.pathname === "/Accessories"
 						? "nav-active"
 						: "nav-item"
