@@ -55,7 +55,7 @@ const data = [
 	},
 ];
 
-const RatingsOverview = () => {
+const RatingsOverview = ({chosenKids}) => {
 	return (
 		<ResponsiveContainer width="100%" height={350}>
 			<LineChart
@@ -68,9 +68,11 @@ const RatingsOverview = () => {
 				<YAxis />
 				<Tooltip />
 				<Legend />
-				<Line type="monotone" dataKey="Amanda" stroke="#8884d8" />
-				<Line type="monotone" dataKey="Johnny" stroke="#82ca9d" />
-				<Line type="monotone" dataKey="Jane" stroke="#E11d48" />
+
+				{
+					chosenKids.map((c) => <Line type="monotone" dataKey={c.name} stroke={c.color} /> )
+				}
+
 			</LineChart>
 		</ResponsiveContainer>
 	);

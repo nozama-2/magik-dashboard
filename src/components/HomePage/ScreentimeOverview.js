@@ -1,6 +1,7 @@
+import { useEffect, useState } from "react";
 import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from "recharts";
 
-const data = [
+const originalData = [
 	{
 		name: "Mon",
 		total: Math.floor(Math.random() * 50) + 10,
@@ -31,7 +32,42 @@ const data = [
 	},
 ];
 
-const ScreentimeOverview = () => {
+const ScreentimeOverview = (chosenKids) => {
+	const [data, setData] = useState(originalData)
+
+	useEffect(() => {
+		setData([
+			{
+				name: "Mon",
+				total: Math.floor(Math.random() * 50) + 10,
+			},
+			{
+				name: "Tues",
+				total: Math.floor(Math.random() * 50) + 10,
+			},
+			{
+				name: "Wed",
+				total: Math.floor(Math.random() * 50) + 10,
+			},
+			{
+				name: "Thurs",
+				total: Math.floor(Math.random() * 50) + 10,
+			},
+			{
+				name: "Fri",
+				total: Math.floor(Math.random() * 50) + 10,
+			},
+			{
+				name: "Sat",
+				total: Math.floor(Math.random() * 50) + 10,
+			},
+			{
+				name: "Sun",
+				total: Math.floor(Math.random() * 50) + 10,
+			},
+		])
+	}, [chosenKids])
+	
 	return (
 		<ResponsiveContainer width="100%" height={350}>
 			<BarChart data={data}>

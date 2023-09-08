@@ -42,20 +42,20 @@ import {
 	TableRow,
 } from "../ui/table";
 
-const data = [
-	{
-		name: "Amanda",
-		age: 8,
-	},
-	{
-		name: "Johnny",
-		age: 7,
-	},
-	{
-		name: "Jane",
-		age: 5,
-	},
-];
+// const data = [
+// 	{
+// 		name: "Amanda",
+// 		age: 8,
+// 	},
+// 	{
+// 		name: "Johnny",
+// 		age: 7,
+// 	},
+// 	{
+// 		name: "Jane",
+// 		age: 5,
+// 	},
+// ];
 
 export const columns = [
 	{
@@ -130,7 +130,7 @@ export const columns = [
 	},
 ];
 
-const KidsTable = () => {
+const KidsTable = ({data, chosenKids, setChosenKids}) => {
 	const [sorting, setSorting] = React.useState([]);
 	const [columnFilters, setColumnFilters] = React.useState([]);
 	const [columnVisibility, setColumnVisibility] = React.useState({});
@@ -154,6 +154,10 @@ const KidsTable = () => {
 			rowSelection,
 		},
 	});
+
+	React.useEffect(() => {
+		setChosenKids(data.filter((child, i) => rowSelection[i]))
+	}, [rowSelection])
 
 	return (
 		<div className="w-full">
@@ -222,7 +226,8 @@ const KidsTable = () => {
 									key={row.id}
 									data-state={
 										row.getIsSelected() && "selected"
-									}>
+									}
+								>
 									{row.getVisibleCells().map((cell) => (
 										<TableCell key={cell.id}>
 											{flexRender(

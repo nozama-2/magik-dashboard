@@ -12,8 +12,34 @@ import "./HomePage.css";
 import RatingsOverview from "../../components/HomePage/RatingsOverview";
 import StrengthsOverview from "../../components/HomePage/StrengthsOverview";
 import KidsTable from "../../components/HomePage/KidsTable";
+import { useState } from "react";
+
+
 
 export default function HomePage() {
+	const kidsData = [
+		{
+			name: "Amanda",
+			age: 8,
+			color: '#8884d8',
+			key:'A'
+		},
+		{
+			name: "Johnny",
+			age: 7,
+			color: '#E11d48',
+			key: 'B',
+		},
+		{
+			name: "Jane",
+			age: 5,
+			color: '#82ca9d',
+			key: 'C'
+		},
+	]
+
+	const [chosenKids, setChosenKids] = useState(kidsData)
+
 	return (
 		<div className="flex-col md:flex home-page-container">
 			<div className="border-b">
@@ -60,6 +86,8 @@ export default function HomePage() {
 							</p>
 						</CardContent>
 					</Card>
+
+					{/* Strengths */}
 					<Card>
 						<CardHeader className="flex flex-col items-left justify-between space-y-0">
 							<CardTitle className="mb-2">
@@ -71,9 +99,11 @@ export default function HomePage() {
 							</CardDescription>
 						</CardHeader>
 						<CardContent>
-							<StrengthsOverview />
+							<StrengthsOverview data={kidsData} chosenKids={chosenKids} />
 						</CardContent>
 					</Card>
+
+					{/* Choosing kid section */}
 					<Card>
 						<CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
 							<CardTitle className="text-sm font-medium">
@@ -81,16 +111,19 @@ export default function HomePage() {
 							</CardTitle>
 						</CardHeader>
 						<CardContent>
-							<KidsTable />
+							<KidsTable data={kidsData} chosenKids={chosenKids} setChosenKids={setChosenKids} />
 						</CardContent>
 					</Card>
 				</div>
+
 				<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
+
+					{/* Screentime card */}
 					<Card className="col-span-4">
 						<CardHeader>
 							<CardTitle>Screentime Overview</CardTitle>
 							<CardDescription>
-								Average screentime of the aggregate of my kids
+								Average screentime of the aggregate of chosen kids
 								in the past week.
 							</CardDescription>
 						</CardHeader>
@@ -98,6 +131,8 @@ export default function HomePage() {
 							<ScreentimeOverview />
 						</CardContent>
 					</Card>
+
+					{/* Ratings card */}
 					<Card className="col-span-3">
 						<CardHeader>
 							<CardTitle>Ratings Overview</CardTitle>
@@ -107,7 +142,7 @@ export default function HomePage() {
 							</CardDescription>
 						</CardHeader>
 						<CardContent>
-							<RatingsOverview />
+							<RatingsOverview chosenKids={chosenKids} />
 						</CardContent>
 					</Card>
 				</div>

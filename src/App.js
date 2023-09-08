@@ -10,35 +10,33 @@ import QuizzesPage from "./pages/QuizzesPage/QuizzesPage";
 import AccessoriesPage from "./pages/AccessoriesPage/AccessoriesPage";
 import SettingsPage from "./pages/SettingsPage/SettingsPage";
 import CreateQuizPage from "./pages/QuizzesPage/CreateQuizPage";
+import QuizShow from "./pages/QuizzesPage/QuizShow";
+import Winner from "./pages/QuizzesPage/Winner";
 
 function App() {
-	return (
-		<div className="App">
-			<Router>
-				<div className="navigation-container">
-					<SideMenu />
-				</div>
-				<div className="main-content-container">
-					<Routes>
-						<Route path="/" element={<HomePage />} />
-						<Route path="/Kids" element={<KidsPage />} />
-						<Route path="/Quizzes" element={<QuizzesPage />} />
-						<Route
-							path="/Accessories"
-							element={<AccessoriesPage />}
-						/>
-						<Route path="/Settings" element={<SettingsPage />} />
+  return (
+    <div className="App">
+      <Router>
+        <div className="navigation-container">
+          <SideMenu />
+        </div>
+        <div className="main-content-container">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/Kids" element={<KidsPage />} />
+            <Route path="/Quizzes" element={<QuizzesPage />} />
+            <Route path="/QuizShow/:quizid/:timer" element={<QuizShow />} />
+            <Route path="/Winner/:winner" element={<Winner />} />
+            <Route path="/Accessories" element={<AccessoriesPage />} />
+            <Route path="/Settings" element={<SettingsPage />} />
 
-						{/* Additional Routes */}
-						<Route
-							path="/CreateQuiz"
-							element={<CreateQuizPage />}
-						/>
-					</Routes>
-				</div>
-			</Router>
-		</div>
-	);
+            {/* Additional Routes */}
+            <Route path="/CreateQuiz" element={<CreateQuizPage />} />
+          </Routes>
+        </div>
+      </Router>
+    </div>
+  );
 }
 
 export default App;

@@ -55,7 +55,7 @@ const data = [
 	},
 ];
 
-const StrengthsOverview = () => {
+const StrengthsOverview = ({chosenKids}) => {
 	return (
 		<div className="h-[180px]">
 			<ResponsiveContainer width="100%" height="100%">
@@ -63,7 +63,18 @@ const StrengthsOverview = () => {
 					<PolarGrid />
 					<PolarAngleAxis dataKey="subject" />
 					<PolarRadiusAxis angle={30} domain={[0, 150]} />
-					<Radar
+
+					{
+						chosenKids.map((c) => <Radar
+							name={c.name}
+							dataKey={c.key}
+							stroke={c.color}
+							fill={c.color}
+							fillOpacity={0.6}
+						/>)
+					}
+
+					{/* <Radar
 						name="Amanda"
 						dataKey="A"
 						stroke="#8884d8"
@@ -83,7 +94,7 @@ const StrengthsOverview = () => {
 						stroke="#82ca9d"
 						fill="#82ca9d"
 						fillOpacity={0.6}
-					/>
+					/> */}
 					<Legend />
 				</RadarChart>
 			</ResponsiveContainer>
